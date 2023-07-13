@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* 상단바 =====================*/
+#top_box{
+    box-shadow: 0px 0px 10px 5px rgb(126, 126, 126);
+
+    margin-bottom: 30px;
+
+    width: 100%;
+    position: fixed;
+    /*float랑 sticky 동시 사용가능하게 수정해야함*/
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+
+}
+#top{
+    width: 80%;
+    margin: auto;
+    height: 80px;
+}
+
+#page_title{
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    display: block;
+    margin-top: 30px;
+    padding-right: 50px;
+
+    float: left;
+
+    border-right: 1px solid black;
+
+}
+
+#page_subtitle{
+    float: left;
+    margin-top: 22.5px;
+    margin-left: 50px;
+    font-size: 12px;
+
+    font-weight: 300;
+
+    text-align: center;
+}
+
+#menu_bar{
+    float: right;
+    margin-top: 30px;
+    margin-left: 70px;
+    
+}
+
+#menu_bar > a{
+    color: black;
+}
+
+#menu_bar > #sec{
+    margin-left: 60px;
+}
+
+
+/*메인 ========================*/
+#code-box{
+    background-color: rgb(58, 63, 128);
+
+    width: 800px;
+    display: block;
+    margin: auto;
+    
+    color:white;
+}
+#code-box > *, xmp{
+    font-family: 'Nanum Gothic Coding', monospace;
+    padding-left: 10px;
+}
+
+code, xmp{
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#main{
+    padding-top: 90px;
+    font-size: 14px;
+    margin-left: 10px;
+
+    width: 850px;
+    margin: auto;
+}
+
+#example{
+    background-color: rgb(215, 215, 215);
+    font-size: 13px;
+    padding: 3px;
+}
+
+#main > span > p{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#main > .mun{
+    display: block;
+    margin-top: 50px;
+}
+
+.small > a {
+    display: block;
+    margin-left: 45px;
+    margin-top: 5px;
+}
+
+.small > p {
+    margin-top: 20px;
+}
+
+
+
+

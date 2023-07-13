@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script> -->
+    <link rel="stylesheet" href="/style/index.css">
+    <link type="text/javascript" src="/index.js">
+
+    <title>별배방</title>
+    <link rel="icon" href="/icon.png" type="image/x-icon">
+</head>
+
+<script>
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
+</script>
+<body>
+    <div id="top" style="width: 100%">
+        <div data-include-path="/top.html"></div>
+</body>
+</html>

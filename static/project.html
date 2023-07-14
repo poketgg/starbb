@@ -8,7 +8,7 @@
     <link type="text/javascript" src="/index.js">
 
     <title>별배방</title>
-    <link rel="icon" href="/icon.png" type="image/x-icon">
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
 </head>
 
 <script>
@@ -32,5 +32,104 @@
 <body>
     <div id="top" style="width: 100%">
         <div data-include-path="/top.html"></div>
+
+    <div id="main">
+        <div id="code-box">
+            <code><a style="margin-top: 5px; margin-left: 10px; font-size: 20px;">#수정 이전의 코드</a><xmp>                #include <stdio.h>
+                    int main(void)
+                    {
+                        int b;
+                        char c1,c2;
+                        while(1)
+                        {
+                            printf("\n일정의 이름을 영어 첫글자로 입력헤주세요. 예) math homework = mh : ");
+                            scanf("%c%c", &c1, &c2);
+                    
+                            printf("일정의 시간을 입력해주세요. 예) 9 : ");
+                            scanf("%d", &b);
+                    
+                            printf("%d%3c%c", b, c1,c2);
+                            if(b>0)
+                            {
+                                break;
+                            }
+                        }
+                    
+                        return 0;
+                    }
+            </xmp></code>
+        </div>
+        <div id="code-box">
+            <code><a style="margin-top: 5px; margin-left: 10px; font-size: 20px;">#실행 결과</a></a><xmp style="line-height: 20px;">
+    일정의 이름을 영어 첫글자로 입력헤주세요. 예) math homework = mh : mh
+    일정의 시간을 입력해주세요. 예) 9 : 52
+    52  mh
+            </xmp></code>
+        </div>
+
+
+        <p> 친구가 수업시간에 해당 코드를 작성하여 수행평가를 했지만, 원래 제작 하려고 했던 기능을 구현하지 못해서 기능이 매우 단순하고
+            수행평가 평가 조건을 충족하지 못해서 점수를 감점 당했다고 한다.
+
+            그래서 친구와 같이 C언어의 개념을 다시 정리하면서 해당 코드를 수정하고 원래 기능하려고 했던 기능을 추가하였다.
+        </p>
+
+        <div id="code-box">
+            <code><a style="margin-top: 5px; margin-left: 10px; font-size: 20px;"># 수정한 코드</a><xmp>                #include <stdio.h>
+                #include <string.h>
+                
+                int main(void){
+                    char b[20];
+                    char input_name[20];
+                    char name[300] = {} ;
+                
+                    while(1){
+                        printf("일정의 이름을 입력해 주세요. (종료시 q 입력) : ");
+                        scanf(" %s", input_name);
+                
+                          if(strcmp(input_name, "q") == 0){
+                            break;
+                          }
+                
+                        name[300]  = strncat(name, input_name, 150);
+                        name[300]  = strncat(name, "_", 1);
+                
+                        printf("일정의 시간을 입력해 주세요. 예) 9시 : ");
+                        scanf(" %s", b);
+                
+                        name[300]  = strncat(name, b, 150);
+                        name[300]  = strncat(name, " // ", 1);
+                
+                        printf("일정 : %s\n", name);
+                    }
+                
+                    return 0;
+                }
+            </xmp></code>
+        </div>
+
+        <div id="code-box">
+            <code><a style="margin-top: 5px; margin-left: 10px; font-size: 20px;">#실행 결과</a></a><xmp style="line-height: 20px;">
+    일정의 이름을 입력해 주세요. (종료시 q 입력) : 수학숙제
+    일정의 시간을 입력해 주세요. 예) 9시 : 11시
+    일정 : 수학숙제_11시
+    일정의 이름을 입력해 주세요. (종료시 q 입력) : 과학숙제
+    일정의 시간을 입력해 주세요. 예) 9시 : 12시
+    일정 : 수학숙제_11시 과학숙제_12시
+    일정의 이름을 입력해 주세요. (종료시 q 입력) : q
+    ...
+    Process returned 0 (0x0)
+            </xmp></code>
+        </div>
+
+        <p> 반복되지 않았던 코드를 조건문을 수정해 계속 반복되도록 만들었고, string.h 라이브러리를 사용하여 문장 뒤에 문장을 이어붙여 저장하는 방식으로 문제를 해결하였다.
+        </p>
+    </div>
+
+    
+
+    <div id="top" style="width: 100%">
+        <div data-include-path="/footer.html"></div>
+    </div>
 </body>
 </html>

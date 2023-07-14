@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script> -->
+    <link rel="stylesheet" href="/style/index.css">
+    <link type="text/javascript" src="/index.js">
+
+    <title>별배방</title>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+</head>
+
+<script>
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
+</script>
+<body>
+    <div id="top" style="width: 100%">
+        <div data-include-path="/top.html"></div>
+
+    <div id="main">
+        <span>
+            <p>1. 입출력, 상수, 변수</p>
+            <span class="small"><p style="margin-bottom: 0px;">　- 입출력</p>
+                <a>
+                    표준출력함수 : <code id="example">printf("출력 형식", 값, 값, ...);</code><br>
+                    표준입력함수 : <code id="example">scanf("입력 형식", &변수);</code><br>
+                    이스케이프 문자<br>
+                    　<code id="example">\n</code> : 줄 바꿈(new line)<br>
+                    　<code id="example">\t</code> : 다음 탭으로 이동(tab)<br>
+                    　<code id="example">\b</code> : 한 칸 뒤로 이동(backspace)<br>
+                    　<code id="example">\\</code> : 역슬래시(\)를 그대로 표시(backslash)<br>
+                    　<code id="example">\'</code> : 작은따옴표(')를 그대로 표시(single quote)<br>
+                    　<code id="example">\"</code> : 큰따옴표(")를 그대로 표시(double quote)<br>
+
+                </a>
+            </span>
+
+            <span class="small"><p style="margin-bottom: 0px;">　- 상수 : 프로그램 실행 도중에는 값을 변경할 수 없는 데이터</p>
+
+            <p style="margin-bottom: 0px;">　- 변수 : 프로그램 실행되는 동안 필요할 때마다 값을 언제든지 변경할 수 있는 기억 장소</p>
+            <a>
+                선언 : <code id="example">자료형 변수명[, 변수명...];</code><br>
+                저장 : <code id="example">변수명 = 값</code><br>
+                초기화 : <code id="example">변수 선언 = 값</code><br><br>
+
+                특징 :<br>
+                　1. 변수는 사용하기 전에 미리 선언되어야 한다.<br>
+                　2. 변수를 선언하면 변수의 이름, 변수에 저장할 자료의 유형, 기억 장소의 크기가 결정된다.<br>
+                　3. 변수에 저장되는 자료는 변수의 자료형과 일치해야 한다.<br>
+                　4. 변수에 저장된 값은 언제든지 변경할 수 있다.<br><br>
+
+                규칙 :<br>
+                　1. 영문자, 숫자, 밑줄로 구성되며, 공백은 포함할 수 없다.<br>
+                　2. 첫 글자는 반드시 영문자나 밑줄로 시작해야 한다.<br>
+                　3. 대문자와 소문자는 엄격하게 구분된다.<br>
+                　4. 예약어(reserved word)는 변수명으로 사용할 수 없다.<br>
+            </a>
+            </span>
+            
+            <span class="small"><p style="margin-bottom: 0px;">　- 자료형</p>
+                <a>
+                    정수형 : char, short, int, long, long long<br>
+                    실수형 : float, double<br>
+                    문자형 : char<br><br>
+
+                    형식지정자<br>
+                    char -> <code id="example">%c</code><br>
+                    short -> <code id="example">%d / %hd</code><br>
+                    int -> <code id="example">%d</code><br>
+                    long -> <code id="example">%ld</code><br>
+                    long long -> <code id="example">%lld</code><br>
+                    float -> <code id="example">%f</code><br>
+                    double -> <code id="example">%f</code><br>
+                    char -> <code id="example">%c</code><br>
+                </a>
+            </span>
+        </span>
+        <span class="mun">
+            <p>2. 연산자</p>
+
+            <span class="small">
+                <p style="margin-bottom: 0px;">　- 대입연산자 : '='</p>
+                <a>
+                    저장공간/변수명/목적지 <code id="example">=</code> 값<br>
+                </a>
+                <p style="margin-bottom: 0px;">- 산술연산자</p>
+                <a>
+                    <code id="example">+</code> : 덧셈<br>
+                    <code id="example">-</code> : 뺄셈<br>
+                    <code id="example">*</code> : 곱셈<br>
+                    <code id="example">/</code> : 나눗셈 또는 몫<br>
+                    <code id="example">%</code> : 나머지<br>
+                </a>
+
+                <p style="margin-bottom: 0px;">　- 증감연산자</p>
+                <a>
+                    <code id="example">++</code> : 1증가<br>
+                    <code id="example">--</code> : 1감소<br>
+                </a>
+                <p style="margin-bottom: 0px;">　- 복합대입연산자</p>
+                <a>
+                    <code id="example">+=</code> : 값을 더하여 대입<br>
+                    <code id="example">-=</code> : 값을 빼서 대입<br>
+                    <code id="example">*=</code> : 값을 곱하여 대입<br>
+                    <code id="example">/=</code> : 값으로 나누어 대입<br>
+                    <code id="example">%=</code> : 값으로 나눈 나머지를 대입
+                </a>
+                <p style="margin-bottom: 0px;">　- 관계연산자</p>
+                <a> 
+                    <code id="example">==</code> : 값이 서로 같아야 참<br>
+                    <code id="example">!=</code> : 값이 서로 같지 않아야 참<br>
+                    <code id="example">></code> : 왼쪽 값이 더 커야 참<br>
+                    <code id="example">>=</code> : 왼쪽 값이 더 크거나 같아야 참<br>
+                    <code id="example"><</code> : 오른쪽 값이 더 커야 참<br>
+                    <code id="example"><=</code> : 오른쪽 값이 더 크거나 같아야 참<br>
+                </a>
+                <p style="margin-bottom: 0px;">　- 논리연산자</p>
+                <a>
+                    <code id="example">&&</code> : 양쪽이 모두 참이어야 참<br>
+                    <code id="example">||</code> : 둘 중 하나만 참이어도 참<br>
+                    <code id="example">!</code> : 참이면 거짓, 거짓이면 참<br>
+                </a>
+            </span>
+        </span>
+    </div>
+
+    <div id="top" style="width: 100%">
+        <div data-include-path="/footer.html"></div>
+    </div>
+</body>
+</html>

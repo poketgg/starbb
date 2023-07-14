@@ -1,0 +1,7 @@
+#sec2:hover, #sec:hover{
+    color: orange;
+}
+
+#page_title:hover{
+    color:rgb(0, 255, 98);
+}

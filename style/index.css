@@ -98,7 +98,7 @@ code, xmp{
     font-size: 14px;
     margin-left: 10px;
 
-    width: 850px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -129,5 +129,39 @@ code, xmp{
 }
 
 
+/*index의 사각형 =============*/
 
+.square{
+    padding-top: 80px;
+    width: 800px;
+    height: 150px;
+    display: block;
+    margin: auto;
+    margin-bottom: 80px;
+}
+
+#square_1, #square_2, #square_3 {
+    float: left;
+    width: 200px;
+    height: 130px;
+
+    padding-top: 70px;
+
+    text-align: center;
+    margin-left: 50px;
+    background-color: rgb(255, 242, 242);
+
+    box-shadow: 5px 15px 20px gray;
+    border-radius: 30px;
+    
+    cursor: pointer;
+}
+
+#square_1:active, #square_2:active, #square_3:active{
+    box-shadow: 0px 0px 20px rgb(92, 92, 92)
+}
+
+#square_1:hover, #square_2:hover, #square_3:hover{
+    color: orange;
+}
 
